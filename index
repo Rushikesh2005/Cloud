@@ -1,0 +1,55 @@
+
+sudo yum update -y
+
+sudo yum install httpd -y
+
+sudo systemctl start httpd 
+
+sudo systemctl enable httpd
+
+sudo systemctl status httpd
+
+echo "HELLO SANKAIT HERE" | sudo tee /var/www/html/index.html
+
+
+  
+1) cd C:\Users\ADMIN\Downloads
+2) ssh -i key1.pem ec2-user@3.80.210.250
+3) echo "Hello from Sender VM" > file1.txt
+4) ls
+cat file1.txt
+file1.txt
+Hello from Sender VM
+5) exit
+6) scp -i key1.pem ec2-user@3.80.210.250:/home/ec2-user/file1.txt ec2-user@107.23.199.215:/home/ec2-user/
+7) ssh -i key1.pem ec2-user@107.23.199.215
+8)  ls
+cat file1.txt
+9) exit
+
+
+  
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::your file/*"
+        }
+    ]
+}
+
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Website</title>
+</head>
+<body>
+<h1>Welcome to AWS S3 Hosting</h1>
+<p>This is my static website.</p>
+</body>
+</html>
